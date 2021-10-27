@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CameraSaveScreenshot : MonoBehaviour
 {
     public int resWidth = 1920;
     public int resHeight = 1080;
- 
+
     private bool takeHiResShot;
- 
+
     //Creates name for the image file
     public static string ScreenShotName(int width, int height) {
         return string.Format("{0}/Screenshots/screen_{1}x{2}_{3}.png",
@@ -21,7 +20,7 @@ public class CameraSaveScreenshot : MonoBehaviour
     }
  
     void LateUpdate() {
-        takeHiResShot |= Keyboard.current.kKey.wasPressedThisFrame;
+        takeHiResShot |= MyInput.takeScreenshot;
         if (takeHiResShot)
         {
             RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
