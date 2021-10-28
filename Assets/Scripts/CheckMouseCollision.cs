@@ -5,22 +5,30 @@ public class CheckMouseCollision : MonoBehaviour
 {
     private Camera cam;
     private Vector3 mouseStartPos;
-    public GameObject selectedObject;
+    [HideInInspector] public GameObject selectedObject;
     private RaycastHit mouseTarget;
-
+    private ObjectController _Objects;
 
     private void Start()
     {
         cam = Camera.main;
+        _Objects = GetComponent<ObjectController>();
     }
 
     private void FixedUpdate()
     {
-        print(Mouse.current.position.ReadValue());
-        
-        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        var ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out mouseTarget, 60f))
         {
+            if (MyInput.delete)
+            {
+                MyInput.delete = false;
+                if (selectedObject != null)
+                {
+                    _Objects.objects.Remove(selectedObject);
+                    Destroy(selectedObject);
+                }
+            }
             //Tries to set the selected object to the object you click
             if (MyInput.leftPressed)
             {
