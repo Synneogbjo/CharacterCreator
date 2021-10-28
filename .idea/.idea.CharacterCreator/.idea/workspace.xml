@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5b4422a5-5cc8-42d5-9d21-08f36e799a87" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CharacterCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CharacterCreator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/JukeBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/JukeBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MusicPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MusicPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635334624746</updated>
       <workItem from="1635334627929" duration="9736000" />
-      <workItem from="1635360489653" duration="3972000" />
+      <workItem from="1635360489653" duration="6620000" />
     </task>
     <servers />
   </component>

@@ -50,6 +50,8 @@ MonoBehaviour:
   Song3: {fileID: 8300000, guid: a157eedb65bbbe44b9d82dac5d173d08, type: 3}
   Song4: {fileID: 8300000, guid: 89ad4b40d92bbd547b7a29e6bf3a06fb, type: 3}
   Song5: {fileID: 8300000, guid: 55afcb1076b0e594d88e6257ee78c366, type: 3}
+  Song6: {fileID: 8300000, guid: fe8944a3a1810ac4caa0669e835a6c38, type: 3}
+  Song7: {fileID: 8300000, guid: 308e065f7b504364ca36da682ed5bda2, type: 3}
   songToPlay: 0
 --- !u!82 &3326831032339510490
 AudioSource:

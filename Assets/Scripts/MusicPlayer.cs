@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class MusicPlayer : MonoBehaviour
@@ -13,13 +14,27 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] private AudioClip Song3;
     [SerializeField] private AudioClip Song4;
     [SerializeField] private AudioClip Song5;
+    [SerializeField] private AudioClip Song6;
+    [SerializeField] private AudioClip Song7;
     [SerializeField] private float songToPlay;
 
     private void Update()
     {
         if (!m_Audio.isPlaying)
         {
-            songToPlay = Random.Range(1, 5);
+            songToPlay = Random.Range(1, 7);
+        }
+        
+        if (songToPlay > 6)
+        {
+            m_Audio.PlayOneShot(Song7);
+            songToPlay = 0;
+        }
+        
+        if (songToPlay > 5)
+        {
+            m_Audio.PlayOneShot(Song6);
+            songToPlay = 0;
         }
         
         if (songToPlay > 4)
@@ -50,6 +65,11 @@ public class MusicPlayer : MonoBehaviour
         {
             m_Audio.PlayOneShot(Song1);
             songToPlay = 0;
+        }
+
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            m_Audio.Stop();
         }
     }
 }

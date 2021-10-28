@@ -5,30 +5,26 @@ public class CheckMouseCollision : MonoBehaviour
 {
     private Camera cam;
     private Vector3 mouseStartPos;
-    [HideInInspector] public GameObject selectedObject;
+    public GameObject selectedObject;
     private RaycastHit mouseTarget;
-    private ObjectController _Objects;
+    [SerializeField] public AudioSource m_Audio;
+    [SerializeField] public AudioClip PickUp;
+    [SerializeField] public AudioClip Place;
+
 
     private void Start()
     {
         cam = Camera.main;
-        _Objects = GetComponent<ObjectController>();
+        m_Audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
     {
-        var ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        print(Mouse.current.position.ReadValue());
+        
+        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out mouseTarget, 60f))
         {
-            if (MyInput.delete)
-            {
-                MyInput.delete = false;
-                if (selectedObject != null)
-                {
-                    _Objects.objects.Remove(selectedObject);
-                    Destroy(selectedObject);
-                }
-            }
             //Tries to set the selected object to the object you click
             if (MyInput.leftPressed)
             {
@@ -37,6 +33,7 @@ public class CheckMouseCollision : MonoBehaviour
                 if (mouseTarget.collider.CompareTag("Selectable"))
                 {
                     selectedObject = mouseTarget.collider.gameObject;
+                    m_Audio.PlayOneShot(PickUp);
                 }
                 else
                 {
@@ -47,6 +44,7 @@ public class CheckMouseCollision : MonoBehaviour
             if (MyInput.leftHold && selectedObject != null)
             {
                 selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
+                m_Audio.PlayOneShot(Place);
             }
         }
     }
