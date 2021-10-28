@@ -22,7 +22,7 @@ public class MusicPlayer : MonoBehaviour
     {
         if (!m_Audio.isPlaying)
         {
-            songToPlay = Random.Range(1, 7);
+            songToPlay = Random.Range(1, 8);
         }
         
         if (songToPlay > 6)
@@ -70,6 +70,12 @@ public class MusicPlayer : MonoBehaviour
         if (Keyboard.current.pKey.wasPressedThisFrame)
         {
             m_Audio.Stop();
+        }
+
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+        {
+            m_Audio.Stop();
+            songToPlay = 7;
         }
     }
 }
