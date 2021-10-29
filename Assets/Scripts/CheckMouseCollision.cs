@@ -13,21 +13,10 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] private AudioClip Place;
     [SerializeField] private AudioClip Delete;
     [SerializeField] private AudioClip Stretch;
-<<<<<<< Updated upstream
     [SerializeField] private AudioClip CameraSound;
     private bool holding;
 
     private Sprite spr;
-=======
-    
-    /* USED FOR TESTING MOVEMENT, REMOVE */
-    public TMP_Text MouseX;
-    public TMP_Text MouseY;
-    public TMP_Text ImageX;
-    public TMP_Text ImageY;
-    public TMP_Text Width;
-    public TMP_Text Height;
->>>>>>> Stashed changes
 
     private void Start()
     {
