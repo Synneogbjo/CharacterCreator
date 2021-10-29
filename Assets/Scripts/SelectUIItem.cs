@@ -17,6 +17,7 @@ public class SelectUIItem : MonoBehaviour
 
     public void AddItem(int item)
     {
+        print("added item");
         _MouseCollision.selectedObject = Instantiate(itemPrefab, new Vector3(0, 0, 49f), Quaternion.identity);
         _MouseCollision.selectedObject.GetComponent<SpriteRenderer>().sprite = _Image.Images[item];
         _Objects.objects.Add(_MouseCollision.selectedObject);

@@ -8,12 +8,13 @@ public class CheckMouseCollision : MonoBehaviour
     public GameObject selectedObject;
     private RaycastHit mouseTarget;
     private ObjectController _Objects;
+    private GameObject stretchAudio;
     
     public AudioSource m_Audio;
     [SerializeField] private AudioClip PickUp;
     public AudioClip Place;
     [SerializeField] private AudioClip Delete;
-    [SerializeField] private AudioClip Stretch;
+    [SerializeField] private AudioClip StretchSound;
     [SerializeField] private AudioClip CameraSound;
     [SerializeField] private AudioClip rotateSound;
     public AudioClip sansSound;
@@ -30,6 +31,7 @@ public class CheckMouseCollision : MonoBehaviour
         cam = Camera.main;
         m_Audio = GetComponent<AudioSource>();
         _Objects = GetComponent<ObjectController>();
+        stretchAudio = GameObject.Find("stretchAudio");
     }
 
     private void FixedUpdate()
@@ -91,7 +93,7 @@ public class CheckMouseCollision : MonoBehaviour
             selectedObject.GetComponent<ItemInfo>().locked = !selectedObject.GetComponent<ItemInfo>().locked;
             MyInput.changeLock = false;
         }
-        
+
         //Variable for the selected object's sprite
         if (selectedObject != null) spr = selectedObject.GetComponent<SpriteRenderer>().sprite;
         
@@ -138,6 +140,8 @@ public class CheckMouseCollision : MonoBehaviour
             {
                 if (!selectedObject.GetComponent<ItemInfo>().locked)
                 {
+                    stretchAudio.GetComponent<AudioSource>().Play();
+                    
                     selectedObject.transform.localScale =
                         new Vector3(
                             (MyInput.mouseInWorld.origin.x - selectedObject.transform.position.x) * 2 *
@@ -153,6 +157,7 @@ public class CheckMouseCollision : MonoBehaviour
                     selectedObject.transform.localScale = scale;
                 }
             }
+            else stretchAudio.GetComponent<AudioSource>().Stop();
         }
     }
 
