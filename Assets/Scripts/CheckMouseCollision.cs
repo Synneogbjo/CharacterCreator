@@ -15,9 +15,12 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] private AudioClip PickUp;
     public AudioClip Place;
     [SerializeField] private AudioClip Delete;
-    [SerializeField] private AudioClip StretchSound;
     [SerializeField] private AudioClip CameraSound;
     [SerializeField] private AudioClip rotateSound;
+    [SerializeField] private AudioClip lockSound;
+    [SerializeField] private AudioClip unlockSound;
+    [SerializeField] private AudioClip undoSound;
+    [SerializeField] private AudioClip flipSound;
     public AudioClip sansSound;
 
     [SerializeField] private float itemMinSize = 0.08f;
@@ -69,7 +72,16 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.resetRotation = false;
             if (selectedObject != null)
             {
-                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.rotation = Quaternion.identity;
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    selectedObject.transform.rotation = Quaternion.identity;
+
+                    if (!MyInput.sans)
+                    {
+                        m_Audio.PlayOneShot(undoSound);
+                    }
+                    else m_Audio.PlayOneShot(sansSound);
+                }
             }
         }
         
@@ -79,7 +91,16 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.resetSize = false;
             if (selectedObject != null)
             {
-                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.localScale = new Vector3(1f, 1f, selectedObject.transform.localScale.z);
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    selectedObject.transform.localScale = new Vector3(1f, 1f, selectedObject.transform.localScale.z);
+                    
+                    if (!MyInput.sans)
+                    {
+                        m_Audio.PlayOneShot(undoSound);
+                    }
+                    else m_Audio.PlayOneShot(sansSound);
+                }
             }
         }
         
@@ -93,6 +114,13 @@ public class CheckMouseCollision : MonoBehaviour
                 {
                     var scale = selectedObject.transform.localScale;
                     selectedObject.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+                    selectedObject.transform.eulerAngles = -selectedObject.transform.eulerAngles;
+
+                    if (!MyInput.sans)
+                    {
+                        m_Audio.PlayOneShot(flipSound);
+                    }
+                    else m_Audio.PlayOneShot(sansSound);
                 }
             }
         }
@@ -105,7 +133,7 @@ public class CheckMouseCollision : MonoBehaviour
             {
                 if (!selectedObject.GetComponent<ItemInfo>().locked)
                 {
-                    _UIItem.AddItem(selectedObject.GetComponent<ItemInfo>().item);
+                    _UIItem.AddItemExt(selectedObject.GetComponent<ItemInfo>().item, selectedObject.transform.localScale, selectedObject.transform.eulerAngles);
                 }
             }
         }
@@ -131,6 +159,15 @@ public class CheckMouseCollision : MonoBehaviour
         {
             selectedObject.GetComponent<ItemInfo>().locked = !selectedObject.GetComponent<ItemInfo>().locked;
             MyInput.changeLock = false;
+            if (!MyInput.sans)
+            {
+                if (selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    m_Audio.PlayOneShot(lockSound);
+                }
+                else m_Audio.PlayOneShot(unlockSound);
+            }
+            else m_Audio.PlayOneShot(sansSound);
         }
 
         if (MyInput.moveItemToFront)
