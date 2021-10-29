@@ -17,9 +17,12 @@ public class SelectUIItem : MonoBehaviour
 
     public void AddItem(int item)
     {
+        print("added item");
         _MouseCollision.selectedObject = Instantiate(itemPrefab, new Vector3(0, 0, 49f), Quaternion.identity);
         _MouseCollision.selectedObject.GetComponent<SpriteRenderer>().sprite = _Image.Images[item];
         _Objects.objects.Add(_MouseCollision.selectedObject);
+        if (!MyInput.sans) _MouseCollision.m_Audio.PlayOneShot(_MouseCollision.Place);
+        else _MouseCollision.m_Audio.PlayOneShot(_MouseCollision.sansSound);
         
         //Set correct box collider size
         var spr = _MouseCollision.selectedObject.GetComponent<SpriteRenderer>().sprite;
