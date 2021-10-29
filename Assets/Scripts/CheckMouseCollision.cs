@@ -15,11 +15,13 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] private AudioClip Stretch;
     [SerializeField] private AudioClip CameraSound;
     [SerializeField] private AudioClip rotateSound;
+    [SerializeField] private AudioClip sansSound;
 
     [SerializeField] private float itemMinSize = 0.08f;
     private bool holding;
     private float rotateTimer;
     private float rotateMaxTimer = 0.05f;
+    private bool sans;
     
     private Sprite spr;
 
@@ -47,7 +49,8 @@ public class CheckMouseCollision : MonoBehaviour
 
                     if (rotateTimer <= 0f)
                     {
-                        m_Audio.PlayOneShot(rotateSound);
+                        if(!sans) m_Audio.PlayOneShot(rotateSound);
+                        else m_Audio.PlayOneShot(sansSound);
                         rotateTimer = rotateMaxTimer;
                     }
                     else rotateTimer -= Time.fixedDeltaTime;
