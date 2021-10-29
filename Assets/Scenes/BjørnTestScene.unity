@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817217231}
+      - m_Target: {fileID: 11500000, guid: 36dcb9b8e28588e4997cf1c4b0d106ab, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -823,11 +823,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &817217231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6855137896593794553, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
-  m_PrefabInstance: {fileID: 6855137895868728748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &919974296 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8437449553580089789, guid: 89b36ac8c16aa5a45a353069f8cc90e0, type: 3}
@@ -1768,7 +1763,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5066595659300678596, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
   m_PrefabInstance: {fileID: 6855137895868728748}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817217231}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f98e85066b83dd7409837b605c5a186f, type: 3}

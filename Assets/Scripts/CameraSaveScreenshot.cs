@@ -5,7 +5,7 @@ public class CameraSaveScreenshot : MonoBehaviour
     public int resWidth = 1920;
     public int resHeight = 1080;
 
-    public static bool takeHiResShot;
+    public static bool shot;
 
     //Creates name for the image file
     public static string ScreenShotName(int width, int height) {
@@ -16,11 +16,11 @@ public class CameraSaveScreenshot : MonoBehaviour
     }
  
     public static void TakeHiResShot() {
-        takeHiResShot = true;
+        shot = true;
     }
- 
+    
     void LateUpdate() {
-        if (takeHiResShot)
+        if (shot)
         {
             RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
             GetComponent<Camera>().targetTexture = rt;
@@ -35,7 +35,7 @@ public class CameraSaveScreenshot : MonoBehaviour
             string filename = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
-            takeHiResShot = false;
+            shot = false;
         }
     }
 }

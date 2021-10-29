@@ -98,4 +98,9 @@ public class CheckMouseCollision : MonoBehaviour
             }
         }
     }
+
+    public void TakeScreenShot()
+    {
+        CameraSaveScreenshot.TakeHiResShot();
+    }
 }

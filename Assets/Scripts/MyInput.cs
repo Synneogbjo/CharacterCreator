@@ -24,10 +24,6 @@ public class MyInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Keyboard.current.kKey.wasPressedThisFrame)
-        {
-            CameraSaveScreenshot.TakeHiResShot();
-        }
         if(Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
