@@ -17,7 +17,6 @@ public class SelectUIItem : MonoBehaviour
 
     public void AddItem(int item)
     {
-        print("added item");
         _MouseCollision.selectedObject = Instantiate(itemPrefab, new Vector3(0, 0, 49f), Quaternion.identity);
         _MouseCollision.selectedObject.GetComponent<SpriteRenderer>().sprite = _Image.Images[item];
         _Objects.objects.Add(_MouseCollision.selectedObject);
@@ -27,5 +26,6 @@ public class SelectUIItem : MonoBehaviour
         //Set correct box collider size
         var spr = _MouseCollision.selectedObject.GetComponent<SpriteRenderer>().sprite;
         _MouseCollision.selectedObject.GetComponent<BoxCollider>().size = new Vector3(Math.Abs(_MouseCollision.selectedObject.transform.localScale.x) * spr.texture.width / spr.pixelsPerUnit, Math.Abs(_MouseCollision.selectedObject.transform.localScale.y) * spr.texture.height / spr.pixelsPerUnit, 0.05f);
+        _MouseCollision.selectedObject.GetComponent<ItemInfo>().item = item;
     }
 }
