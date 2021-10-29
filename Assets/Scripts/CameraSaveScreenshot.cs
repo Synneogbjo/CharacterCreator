@@ -5,7 +5,7 @@ public class CameraSaveScreenshot : MonoBehaviour
     public int resWidth = 1920;
     public int resHeight = 1080;
 
-    private bool takeHiResShot;
+    public static bool takeHiResShot;
 
     //Creates name for the image file
     public static string ScreenShotName(int width, int height) {
@@ -15,7 +15,7 @@ public class CameraSaveScreenshot : MonoBehaviour
                             System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     }
  
-    public void TakeHiResShot() {
+    public static void TakeHiResShot() {
         takeHiResShot = true;
     }
  

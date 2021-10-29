@@ -15,7 +15,6 @@ public class MyInput : MonoBehaviour
     public static Ray mouseInWorld;
     
     private Camera cam;
-    [SerializeField] private CameraSaveScreenshot _Screenshot;
 
     private void Start()
     {
@@ -27,7 +26,7 @@ public class MyInput : MonoBehaviour
     {
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
-            _Screenshot.TakeHiResShot();
+            CameraSaveScreenshot.TakeHiResShot();
         }
         if(Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         
