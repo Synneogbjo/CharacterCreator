@@ -42,7 +42,6 @@ public class MyInput : MonoBehaviour
         
         if (Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;
-        print(leftHold);
         rightHold = Mouse.current.rightButton.isPressed;
 
         rotateRight = Keyboard.current.eKey.isPressed;
