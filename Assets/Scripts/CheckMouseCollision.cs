@@ -21,8 +21,7 @@ public class CheckMouseCollision : MonoBehaviour
     private bool holding;
     private float rotateTimer;
     private float rotateMaxTimer = 0.05f;
-    private bool sans;
-    
+
     private Sprite spr;
 
     private void Start()
@@ -49,7 +48,7 @@ public class CheckMouseCollision : MonoBehaviour
 
                     if (rotateTimer <= 0f)
                     {
-                        if(!sans) m_Audio.PlayOneShot(rotateSound);
+                        if(!MyInput.sans) m_Audio.PlayOneShot(rotateSound);
                         else m_Audio.PlayOneShot(sansSound);
                         rotateTimer = rotateMaxTimer;
                     }
@@ -79,7 +78,8 @@ public class CheckMouseCollision : MonoBehaviour
                 {
                     Destroy(selectedObject);
                     _Objects.objects.Remove(selectedObject);
-                    m_Audio.PlayOneShot(Delete);
+                    if(!MyInput.sans) m_Audio.PlayOneShot(Delete);
+                    else m_Audio.PlayOneShot(sansSound);
                 }
             }
         }
@@ -106,7 +106,8 @@ public class CheckMouseCollision : MonoBehaviour
                 if (mouseTarget.collider.CompareTag("Selectable"))
                 {
                     selectedObject = mouseTarget.collider.gameObject;
-                    m_Audio.PlayOneShot(PickUp);
+                    if(!MyInput.sans) m_Audio.PlayOneShot(PickUp);
+                    else m_Audio.PlayOneShot(sansSound);
                     if (!selectedObject.GetComponent<ItemInfo>().locked)
                     {
                         _Objects.objects.Remove(selectedObject);
@@ -128,7 +129,8 @@ public class CheckMouseCollision : MonoBehaviour
             else if (holding)
             {
                 holding = false;
-                m_Audio.PlayOneShot(Place);
+                if (!MyInput.sans) m_Audio.PlayOneShot(Place);
+                else m_Audio.PlayOneShot(sansSound);
             }
 
             if (MyInput.rightHold && selectedObject != null)
@@ -156,6 +158,7 @@ public class CheckMouseCollision : MonoBehaviour
     public void TakeScreenShot()
     {
         CameraSaveScreenshot.TakeHiResShot();
-        m_Audio.PlayOneShot(CameraSound);
+        if (!MyInput.sans) m_Audio.PlayOneShot(CameraSound);
+        else m_Audio.PlayOneShot(sansSound);
     }
 }
