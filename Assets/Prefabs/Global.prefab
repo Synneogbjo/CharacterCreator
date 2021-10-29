@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   _ExitCanvas: {fileID: 0}
+  _ItemCanvas: {fileID: 0}
   m_Audio: {fileID: 1931913463827237594}
   PickUp: {fileID: 8300000, guid: 24210fac56f3ac149920b89b409a1bc6, type: 3}
   Place: {fileID: 8300000, guid: 530ace3ebc3698b499628c38f7d1689e, type: 3}
@@ -289,6 +290,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e56cd342cd88559479b179330f3bc52b, type: 3}
   - {fileID: 21300000, guid: 6d3c8d6b6304b4d4aaf3ef9cdf50e678, type: 3}
   - {fileID: 21300000, guid: dea63de44f912ca4ca4ab9c9daba2ce8, type: 3}
+  - {fileID: 21300000, guid: 92c8d9efc3319c84fbe3c373bdc0d1a6, type: 3}
+  - {fileID: 21300000, guid: e56cd342cd88559479b179330f3bc52b, type: 3}
+  - {fileID: 21300000, guid: 6d3c8d6b6304b4d4aaf3ef9cdf50e678, type: 3}
+  - {fileID: 21300000, guid: dea63de44f912ca4ca4ab9c9daba2ce8, type: 3}
   - {fileID: 21300000, guid: 9a142475b52422048bf77a1da9d5e184, type: 3}
   - {fileID: 21300000, guid: 1477418f254af2a48a3c3f1ff0913117, type: 3}
   - {fileID: 21300000, guid: aab1e580bf40ac743a27eb5f9715f09c, type: 3}
@@ -315,11 +320,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
-  - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
-  - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
-  - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
-  - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: c342553643e71f243a4519c1ff43fca9, type: 3}
+  - {fileID: 21300000, guid: dd270e5ebd7a9854f9d9a28a073c33f2, type: 3}
   - {fileID: 21300000, guid: 4f9c27082a64baf47af5a170409d115f, type: 3}
   - {fileID: 21300000, guid: 2584e9ef097520442b77c16124bfc2a2, type: 3}
   - {fileID: 21300000, guid: c0851db56e35c8f4582a9bbbb00c6782, type: 3}
@@ -327,7 +329,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef2014601f9cd99489472579d263b6a5, type: 3}
   - {fileID: 21300000, guid: 9b181fbfaabda3448adcd9361283f8db, type: 3}
   - {fileID: 21300000, guid: 6f5f9cf18fa8c124c97171aa7657a9ea, type: 3}
-  - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
   - {fileID: 21300000, guid: bc8bfab6dc4368248be2c67d4a97f387, type: 3}
@@ -555,4 +556,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cde9cffa9db56479af5ecad225e002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ExitCanvas: {fileID: 0}
