@@ -206,13 +206,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 36dcb9b8e28588e4997cf1c4b0d106ab, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 817217236}
+        m_TargetAssemblyTypeName: CheckMouseCollision, Assembly-CSharp
+        m_MethodName: TakeScreenShot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -823,6 +823,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &817217236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1834590294, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
+  m_PrefabInstance: {fileID: 6855137895868728748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e8c012265dbf47af40206461ed9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &919974296 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8437449553580089789, guid: 89b36ac8c16aa5a45a353069f8cc90e0, type: 3}
