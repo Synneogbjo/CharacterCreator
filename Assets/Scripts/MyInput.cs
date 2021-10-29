@@ -12,6 +12,7 @@ public class MyInput : MonoBehaviour
     public static bool resetRotation;
     public static bool changeLock;
     public static bool sans;
+    public static bool moveItemToFront;
 
     public static Vector2 mousePos;
     public static Ray mouseInWorld;
@@ -29,6 +30,7 @@ public class MyInput : MonoBehaviour
         if (Keyboard.current.xKey.wasPressedThisFrame) changeLock = true;
         if (Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         if (Keyboard.current.sKey.wasPressedThisFrame) sans = !sans;
+        if (Keyboard.current.fKey.wasPressedThisFrame) moveItemToFront = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;

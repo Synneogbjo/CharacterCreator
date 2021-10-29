@@ -94,6 +94,19 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.changeLock = false;
         }
 
+        if (MyInput.moveItemToFront)
+        {
+            MyInput.moveItemToFront = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    _Objects.objects.Remove(selectedObject);
+                    _Objects.objects.Add(selectedObject);
+                }
+            }
+        }
+
         //Variable for the selected object's sprite
         if (selectedObject != null) spr = selectedObject.GetComponent<SpriteRenderer>().sprite;
         
@@ -111,11 +124,6 @@ public class CheckMouseCollision : MonoBehaviour
                     selectedObject = mouseTarget.collider.gameObject;
                     if(!MyInput.sans) m_Audio.PlayOneShot(PickUp);
                     else m_Audio.PlayOneShot(sansSound);
-                    if (!selectedObject.GetComponent<ItemInfo>().locked)
-                    {
-                        _Objects.objects.Remove(selectedObject);
-                        _Objects.objects.Add(selectedObject);
-                    }
 
                     holding = true;
                 }
