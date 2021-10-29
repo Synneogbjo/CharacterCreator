@@ -22,7 +22,6 @@ public class CheckMouseCollision : MonoBehaviour
     public TMP_Text Width;
     public TMP_Text Height;
 
-
     private void Start()
     {
         cam = Camera.main;
@@ -90,6 +89,8 @@ public class CheckMouseCollision : MonoBehaviour
                 {
                     selectedObject = mouseTarget.collider.gameObject;
                     m_Audio.PlayOneShot(PickUp);
+                    _Objects.objects.Remove(selectedObject);
+                    _Objects.objects.Add(selectedObject);
                 }
                 else
                 {
@@ -100,7 +101,6 @@ public class CheckMouseCollision : MonoBehaviour
             if (MyInput.leftHold && selectedObject != null)
             {
                 selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
-                m_Audio.PlayOneShot(Place);
             }
 
             if (MyInput.rightHold && selectedObject != null)
