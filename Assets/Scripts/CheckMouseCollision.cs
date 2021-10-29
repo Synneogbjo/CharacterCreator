@@ -8,14 +8,15 @@ public class CheckMouseCollision : MonoBehaviour
     public GameObject selectedObject;
     private RaycastHit mouseTarget;
     private ObjectController _Objects;
-    [SerializeField] private AudioSource m_Audio;
+    
+    public AudioSource m_Audio;
     [SerializeField] private AudioClip PickUp;
-    [SerializeField] private AudioClip Place;
+    public AudioClip Place;
     [SerializeField] private AudioClip Delete;
     [SerializeField] private AudioClip Stretch;
     [SerializeField] private AudioClip CameraSound;
     [SerializeField] private AudioClip rotateSound;
-    [SerializeField] private AudioClip sansSound;
+    public AudioClip sansSound;
 
     [SerializeField] private float itemMinSize = 0.08f;
     private bool holding;
