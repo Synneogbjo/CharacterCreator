@@ -40,8 +40,9 @@ public class MyInput : MonoBehaviour
         if (Keyboard.current.dKey.wasPressedThisFrame) duplicate = true;
         if (Keyboard.current.tabKey.wasPressedThisFrame) hideUI = !hideUI;
         
-        if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
+        if (Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;
+        print(leftHold);
         rightHold = Mouse.current.rightButton.isPressed;
 
         rotateRight = Keyboard.current.eKey.isPressed;
