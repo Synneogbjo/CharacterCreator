@@ -64,7 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7e328a6afa726448b4f52453293400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Screenshot: {fileID: 0}
 --- !u!114 &1834590296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Images:
-  - {fileID: 21300000, guid: 706642aa7642bf440adbf960aae1eab8, type: 3}
+  - {fileID: 21300000, guid: 7b40f824c73c9cd4a821ff48fe4d3419, type: 3}
   - {fileID: 21300000, guid: 6dfee1637a0672e4e9541d3fa482c0b0, type: 3}
   - {fileID: 21300000, guid: 8477e46620e2b304096351df09b00dc0, type: 3}
   - {fileID: 21300000, guid: f69930bd770b6cb4cb5395b866c9b51c, type: 3}
