@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -232,7 +231,6 @@ public class CheckMouseCollision : MonoBehaviour
 
             if (MyInput.leftHold && selectedObject != null)
             {
-                print("moving");
                 if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
             }
             else if (holding)
@@ -244,7 +242,6 @@ public class CheckMouseCollision : MonoBehaviour
 
             if (MyInput.rightHold && selectedObject != null)
             {
-                print("scaling");
                 if (!selectedObject.GetComponent<ItemInfo>().locked)
                 {
                     if (!stretchAudio.GetComponent<AudioSource>().isPlaying) stretchAudio.GetComponent<AudioSource>().Play();
