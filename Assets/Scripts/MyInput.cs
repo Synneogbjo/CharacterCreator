@@ -10,8 +10,12 @@ public class MyInput : MonoBehaviour
     public static bool rotateRight;
     public static bool rotateLeft;
     public static bool resetRotation;
+    public static bool resetSize;
     public static bool changeLock;
     public static bool sans;
+    public static bool moveItemToFront;
+    public static bool flip;
+    public static bool duplicate;
 
     public static Vector2 mousePos;
     public static Ray mouseInWorld;
@@ -29,6 +33,8 @@ public class MyInput : MonoBehaviour
         if (Keyboard.current.xKey.wasPressedThisFrame) changeLock = true;
         if (Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         if (Keyboard.current.sKey.wasPressedThisFrame) sans = !sans;
+        if (Keyboard.current.wKey.wasPressedThisFrame) moveItemToFront = true;
+        if (Keyboard.current.dKey.wasPressedThisFrame) duplicate = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;
@@ -37,6 +43,8 @@ public class MyInput : MonoBehaviour
         rotateRight = Keyboard.current.eKey.isPressed;
         rotateLeft = Keyboard.current.qKey.isPressed;
         if (Keyboard.current.rKey.wasPressedThisFrame) resetRotation = true;
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) resetSize = true;
+        if (Keyboard.current.fKey.wasPressedThisFrame) flip = true;
         
         mousePos = Mouse.current.position.ReadValue();
         mouseInWorld = cam.ScreenPointToRay(mousePos);

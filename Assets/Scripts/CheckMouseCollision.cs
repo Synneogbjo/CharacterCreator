@@ -9,6 +9,7 @@ public class CheckMouseCollision : MonoBehaviour
     private RaycastHit mouseTarget;
     private ObjectController _Objects;
     private GameObject stretchAudio;
+    private SelectUIItem _UIItem;
     
     public AudioSource m_Audio;
     [SerializeField] private AudioClip PickUp;
@@ -32,6 +33,7 @@ public class CheckMouseCollision : MonoBehaviour
         m_Audio = GetComponent<AudioSource>();
         _Objects = GetComponent<ObjectController>();
         stretchAudio = GameObject.Find("stretchAudio");
+        _UIItem = GetComponent<SelectUIItem>();
     }
 
     private void FixedUpdate()
@@ -71,6 +73,43 @@ public class CheckMouseCollision : MonoBehaviour
             }
         }
         
+        //Reset size of selected object
+        if (MyInput.resetSize)
+        {
+            MyInput.resetSize = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.localScale = new Vector3(1f, 1f, selectedObject.transform.localScale.z);
+            }
+        }
+        
+        //Flip item
+        if (MyInput.flip)
+        {
+            MyInput.flip = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    var scale = selectedObject.transform.localScale;
+                    selectedObject.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+                }
+            }
+        }
+        
+        //Duplicate item
+        if (MyInput.duplicate)
+        {
+            MyInput.duplicate = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    _UIItem.AddItem(selectedObject.GetComponent<ItemInfo>().item);
+                }
+            }
+        }
+        
         //Delete selected object
         if (MyInput.delete)
         {
@@ -94,6 +133,19 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.changeLock = false;
         }
 
+        if (MyInput.moveItemToFront)
+        {
+            MyInput.moveItemToFront = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    _Objects.objects.Remove(selectedObject);
+                    _Objects.objects.Add(selectedObject);
+                }
+            }
+        }
+
         //Variable for the selected object's sprite
         if (selectedObject != null) spr = selectedObject.GetComponent<SpriteRenderer>().sprite;
         
@@ -111,11 +163,6 @@ public class CheckMouseCollision : MonoBehaviour
                     selectedObject = mouseTarget.collider.gameObject;
                     if(!MyInput.sans) m_Audio.PlayOneShot(PickUp);
                     else m_Audio.PlayOneShot(sansSound);
-                    if (!selectedObject.GetComponent<ItemInfo>().locked)
-                    {
-                        _Objects.objects.Remove(selectedObject);
-                        _Objects.objects.Add(selectedObject);
-                    }
 
                     holding = true;
                 }
