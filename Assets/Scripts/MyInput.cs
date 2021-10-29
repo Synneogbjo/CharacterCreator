@@ -16,6 +16,8 @@ public class MyInput : MonoBehaviour
     public static bool moveItemToFront;
     public static bool flip;
     public static bool duplicate;
+    public static bool exit;
+    public static bool hideUI;
 
     public static Vector2 mousePos;
     public static Ray mouseInWorld;
@@ -30,11 +32,13 @@ public class MyInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame) exit = !exit;
         if (Keyboard.current.xKey.wasPressedThisFrame) changeLock = true;
         if (Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         if (Keyboard.current.sKey.wasPressedThisFrame) sans = !sans;
         if (Keyboard.current.wKey.wasPressedThisFrame) moveItemToFront = true;
         if (Keyboard.current.dKey.wasPressedThisFrame) duplicate = true;
+        if (Keyboard.current.tabKey.wasPressedThisFrame) hideUI = !hideUI;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,9 @@ public class CheckMouseCollision : MonoBehaviour
     private ObjectController _Objects;
     private GameObject stretchAudio;
     private SelectUIItem _UIItem;
+
+    [SerializeField] private Canvas _ExitCanvas;
+    [SerializeField] private Canvas _ItemCanvas;
     
     public AudioSource m_Audio;
     [SerializeField] private AudioClip PickUp;
@@ -37,6 +41,23 @@ public class CheckMouseCollision : MonoBehaviour
         _Objects = GetComponent<ObjectController>();
         stretchAudio = GameObject.Find("stretchAudio");
         _UIItem = GetComponent<SelectUIItem>();
+        _ItemCanvas.gameObject.SetActive(true);
+        _ExitCanvas.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (MyInput.exit)
+        {
+            _ExitCanvas.gameObject.SetActive(true);
+        }
+        else _ExitCanvas.gameObject.SetActive(false);
+
+        if (MyInput.hideUI)
+        {
+            _ItemCanvas.gameObject.SetActive(false);
+        }
+        else _ItemCanvas.gameObject.SetActive(true);
     }
 
     private void FixedUpdate()

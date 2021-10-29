@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 1931913463827237595}
   - component: {fileID: 1931913463116567644}
   - component: {fileID: 1931913463827237594}
+  - component: {fileID: 6255901049151726090}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -192,11 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
+  _ExitCanvas: {fileID: 0}
   m_Audio: {fileID: 1931913463827237594}
   PickUp: {fileID: 8300000, guid: 24210fac56f3ac149920b89b409a1bc6, type: 3}
   Place: {fileID: 8300000, guid: 530ace3ebc3698b499628c38f7d1689e, type: 3}
   Delete: {fileID: 8300000, guid: ed3ea69be8b4c254c882d85e3f0df569, type: 3}
-  StretchSound: {fileID: 0}
   CameraSound: {fileID: 8300000, guid: c5ba7903762e37543a9cc344d78c8a71, type: 3}
   rotateSound: {fileID: 8300000, guid: dcbac1b58ab538646b02877ce6361bc2, type: 3}
   lockSound: {fileID: 8300000, guid: 7f998ef8329ac76469070a07275beedd, type: 3}
@@ -379,3 +380,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6255901049151726090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931913463827237573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cde9cffa9db56479af5ecad225e002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ExitCanvas: {fileID: 0}
