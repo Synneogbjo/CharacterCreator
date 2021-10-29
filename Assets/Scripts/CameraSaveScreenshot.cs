@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CameraSaveScreenshot : MonoBehaviour
@@ -6,6 +7,7 @@ public class CameraSaveScreenshot : MonoBehaviour
     public int resHeight = 1080;
 
     public static bool shot;
+    [SerializeField] private TMP_Text _txt;
 
     //Creates name for the image file
     public static string ScreenShotName(int width, int height) {
@@ -34,7 +36,7 @@ public class CameraSaveScreenshot : MonoBehaviour
             byte[] bytes = screenShot.EncodeToPNG();
             string filename = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(filename, bytes);
-            Debug.Log(string.Format("Took screenshot to: {0}", filename));
+            _txt.text = $"Took screenshot to: {filename}";
             shot = false;
         }
     }
