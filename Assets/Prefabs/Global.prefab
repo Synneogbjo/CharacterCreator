@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Audio: {fileID: 23591348341705348}
   PickUp: {fileID: 8300000, guid: 24210fac56f3ac149920b89b409a1bc6, type: 3}
   Place: {fileID: 8300000, guid: 530ace3ebc3698b499628c38f7d1689e, type: 3}
+  Delete: {fileID: 8300000, guid: ed3ea69be8b4c254c882d85e3f0df569, type: 3}
+  Stretch: {fileID: 8300000, guid: 25761a336df7e4546a42a9da075f39fe, type: 3}
+  CameraSound: {fileID: 8300000, guid: c5ba7903762e37543a9cc344d78c8a71, type: 3}
 --- !u!114 &1834590295
 MonoBehaviour:
   m_ObjectHideFlags: 0

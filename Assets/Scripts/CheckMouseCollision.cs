@@ -8,9 +8,13 @@ public class CheckMouseCollision : MonoBehaviour
     public GameObject selectedObject;
     private RaycastHit mouseTarget;
     private ObjectController _Objects;
-    [SerializeField] public AudioSource m_Audio;
-    [SerializeField] public AudioClip PickUp;
-    [SerializeField] public AudioClip Place;
+    [SerializeField] private AudioSource m_Audio;
+    [SerializeField] private AudioClip PickUp;
+    [SerializeField] private AudioClip Place;
+    [SerializeField] private AudioClip Delete;
+    [SerializeField] private AudioClip Stretch;
+    [SerializeField] private AudioClip CameraSound;
+    private bool holding;
 
     private Sprite spr;
 
@@ -51,6 +55,7 @@ public class CheckMouseCollision : MonoBehaviour
             {
                 Destroy(selectedObject);
                 _Objects.objects.Remove(selectedObject);
+                m_Audio.PlayOneShot(Delete);
             }
         }
         
@@ -72,6 +77,7 @@ public class CheckMouseCollision : MonoBehaviour
                     m_Audio.PlayOneShot(PickUp);
                     _Objects.objects.Remove(selectedObject);
                     _Objects.objects.Add(selectedObject);
+                    holding = true;
                 }
                 else
                 {
@@ -83,14 +89,14 @@ public class CheckMouseCollision : MonoBehaviour
             {
                 selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
             }
+            else if (holding)
+            {
+                holding = false;
+                m_Audio.PlayOneShot(Place);
+            }
 
             if (MyInput.rightHold && selectedObject != null)
             {
-                print(spr.pixelsPerUnit);
-                print(spr.texture.width);
-                print(MyInput.mouseInWorld.origin.x);
-                print(selectedObject.transform.position.x);
-                
                 selectedObject.transform.localScale =
                     new Vector3((MyInput.mouseInWorld.origin.x - selectedObject.transform.position.x) * 2 * spr.pixelsPerUnit / spr.texture.width,
                                 (MyInput.mouseInWorld.origin.y - selectedObject.transform.position.y) * 2 * spr.pixelsPerUnit / spr.texture.height,
