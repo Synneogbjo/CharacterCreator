@@ -26,7 +26,7 @@ public class MyInput : MonoBehaviour
     private void Update()
     {
         takeScreenshot = Keyboard.current.kKey.wasPressedThisFrame;
-        if(Keyboard.current.deleteKey.wasPressedThisFrame) delete = true;
+        if(Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;

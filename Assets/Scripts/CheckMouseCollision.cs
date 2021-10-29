@@ -1,5 +1,3 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,34 +11,14 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] public AudioSource m_Audio;
     [SerializeField] public AudioClip PickUp;
     [SerializeField] public AudioClip Place;
-    
-    /* USED FOR TESTING MOVEMENT, REMOVE */
-    public TMP_Text MouseX;
-    public TMP_Text MouseY;
-    public TMP_Text ImageX;
-    public TMP_Text ImageY;
-    public TMP_Text Width;
-    public TMP_Text Height;
+
+    private Sprite spr;
 
     private void Start()
     {
         cam = Camera.main;
         m_Audio = GetComponent<AudioSource>();
         _Objects = GetComponent<ObjectController>();
-    }
-
-    /* TEST ONLY, REMOVE */
-    private void Update()
-    {
-        if (selectedObject != null)
-        {
-            MouseX.text = "MouseX: " + Math.Round(MyInput.mouseInWorld.origin.x,1);
-            MouseY.text = "MouseY: " + Math.Round(MyInput.mouseInWorld.origin.y,1);
-            ImageX.text = "ImageX: " + Math.Round(selectedObject.transform.position.x,1);
-            ImageY.text = "ImageY: " + Math.Round(selectedObject.transform.position.y,1);
-            Width.text = "Width: " + selectedObject.transform.localScale.x;
-            Height.text = "height: " + selectedObject.transform.localScale.y;
-        }
     }
 
     private void FixedUpdate()
@@ -76,6 +54,9 @@ public class CheckMouseCollision : MonoBehaviour
             }
         }
         
+        //Variable for the selected object's sprite
+        if (selectedObject != null) spr = selectedObject.GetComponent<SpriteRenderer>().sprite;
+        
         //Check Mouse Position and Clicking
         Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out mouseTarget, 60f))
@@ -105,7 +86,6 @@ public class CheckMouseCollision : MonoBehaviour
 
             if (MyInput.rightHold && selectedObject != null)
             {
-                var spr = selectedObject.GetComponent<SpriteRenderer>().sprite;
                 print(spr.pixelsPerUnit);
                 print(spr.texture.width);
                 print(MyInput.mouseInWorld.origin.x);
@@ -115,11 +95,6 @@ public class CheckMouseCollision : MonoBehaviour
                     new Vector3((MyInput.mouseInWorld.origin.x - selectedObject.transform.position.x) * 2 * spr.pixelsPerUnit / spr.texture.width,
                                 (MyInput.mouseInWorld.origin.y - selectedObject.transform.position.y) * 2 * spr.pixelsPerUnit / spr.texture.height,
                                   selectedObject.transform.localScale.z);
-            }
-
-            if (selectedObject != null){
-                selectedObject.GetComponent<Collider>().transform.localScale =
-                new Vector3(Math.Abs(selectedObject.transform.localScale.x), Math.Abs(selectedObject.transform.localScale.y), 0.05f);
             }
         }
     }
