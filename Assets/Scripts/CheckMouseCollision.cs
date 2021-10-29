@@ -15,8 +15,12 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] private AudioClip Stretch;
     [SerializeField] private AudioClip CameraSound;
     [SerializeField] private AudioClip rotateSound;
-    private bool holding;
 
+    [SerializeField] private float itemMinSize = 0.08f;
+    private bool holding;
+    private float rotateTimer;
+    private float rotateMaxTimer = 0.05f;
+    
     private Sprite spr;
 
     private void Start()
@@ -31,12 +35,26 @@ public class CheckMouseCollision : MonoBehaviour
         //Rotate selected object
         if (MyInput.rotateRight || MyInput.rotateLeft)
         {
-            if (MyInput.rotateRight)
+            if (selectedObject != null)
             {
-                selectedObject.transform.Rotate(0f,0f,-2f,Space.Self);
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    if (MyInput.rotateRight)
+                    {
+                        selectedObject.transform.Rotate(0f, 0f, -2f, Space.Self);
+                    }
+                    else selectedObject.transform.Rotate(0f, 0f, 2f, Space.Self);
+
+                    if (rotateTimer <= 0f)
+                    {
+                        m_Audio.PlayOneShot(rotateSound);
+                        rotateTimer = rotateMaxTimer;
+                    }
+                    else rotateTimer -= Time.fixedDeltaTime;
+                }
             }
-            else selectedObject.transform.Rotate(0f, 0f, 2f, Space.Self);
         }
+        else rotateTimer = 0f;
 
         //Reset rotation of selected object
         if (MyInput.resetRotation)
@@ -44,7 +62,7 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.resetRotation = false;
             if (selectedObject != null)
             {
-                selectedObject.transform.rotation = Quaternion.identity;
+                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.rotation = Quaternion.identity;
             }
         }
         
@@ -54,10 +72,20 @@ public class CheckMouseCollision : MonoBehaviour
             MyInput.delete = false;
             if (selectedObject != null)
             {
-                Destroy(selectedObject);
-                _Objects.objects.Remove(selectedObject);
-                m_Audio.PlayOneShot(Delete);
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    Destroy(selectedObject);
+                    _Objects.objects.Remove(selectedObject);
+                    m_Audio.PlayOneShot(Delete);
+                }
             }
+        }
+        
+        //Lock or Unlock Item
+        if (MyInput.changeLock && selectedObject != null)
+        {
+            selectedObject.GetComponent<ItemInfo>().locked = !selectedObject.GetComponent<ItemInfo>().locked;
+            MyInput.changeLock = false;
         }
         
         //Variable for the selected object's sprite
@@ -76,8 +104,12 @@ public class CheckMouseCollision : MonoBehaviour
                 {
                     selectedObject = mouseTarget.collider.gameObject;
                     m_Audio.PlayOneShot(PickUp);
-                    _Objects.objects.Remove(selectedObject);
-                    _Objects.objects.Add(selectedObject);
+                    if (!selectedObject.GetComponent<ItemInfo>().locked)
+                    {
+                        _Objects.objects.Remove(selectedObject);
+                        _Objects.objects.Add(selectedObject);
+                    }
+
                     holding = true;
                 }
                 else
@@ -88,7 +120,7 @@ public class CheckMouseCollision : MonoBehaviour
 
             if (MyInput.leftHold && selectedObject != null)
             {
-                selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
+                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.position = new Vector3(mouseTarget.point.x, mouseTarget.point.y, selectedObject.transform.position.z);
             }
             else if (holding)
             {
@@ -98,10 +130,22 @@ public class CheckMouseCollision : MonoBehaviour
 
             if (MyInput.rightHold && selectedObject != null)
             {
-                selectedObject.transform.localScale =
-                    new Vector3((MyInput.mouseInWorld.origin.x - selectedObject.transform.position.x) * 2 * spr.pixelsPerUnit / spr.texture.width,
-                                (MyInput.mouseInWorld.origin.y - selectedObject.transform.position.y) * 2 * spr.pixelsPerUnit / spr.texture.height,
-                                  selectedObject.transform.localScale.z);
+                if (!selectedObject.GetComponent<ItemInfo>().locked)
+                {
+                    selectedObject.transform.localScale =
+                        new Vector3(
+                            (MyInput.mouseInWorld.origin.x - selectedObject.transform.position.x) * 2 *
+                            spr.pixelsPerUnit / spr.texture.width,
+                            (MyInput.mouseInWorld.origin.y - selectedObject.transform.position.y) * 2 *
+                            spr.pixelsPerUnit / spr.texture.height,
+                            selectedObject.transform.localScale.z);
+                    var scale = selectedObject.transform.localScale;
+                    if (scale.x < itemMinSize && scale.x >= 0f) scale = new Vector3(itemMinSize, scale.y, scale.z);
+                    if (scale.x > -itemMinSize && scale.x <= 0f) scale = new Vector3(-itemMinSize, scale.y, scale.z);
+                    if (scale.y < itemMinSize && scale.y >= 0f) scale = new Vector3(scale.x, itemMinSize, scale.z);
+                    if (scale.y > -itemMinSize && scale.y <= 0f) scale = new Vector3(scale.x, -itemMinSize, scale.z);
+                    selectedObject.transform.localScale = scale;
+                }
             }
         }
     }
@@ -109,5 +153,6 @@ public class CheckMouseCollision : MonoBehaviour
     public void TakeScreenShot()
     {
         CameraSaveScreenshot.TakeHiResShot();
+        m_Audio.PlayOneShot(CameraSound);
     }
 }

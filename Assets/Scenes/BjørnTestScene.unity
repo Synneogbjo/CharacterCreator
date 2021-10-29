@@ -1654,6 +1654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global
       objectReference: {fileID: 0}
+    - target: {fileID: 1931913463827237598, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
+      propertyPath: rotateSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dcbac1b58ab538646b02877ce6361bc2, type: 3}
     - target: {fileID: 1931913463827237599, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
       propertyPath: m_RootOrder
       value: 6

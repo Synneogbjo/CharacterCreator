@@ -10,6 +10,7 @@ public class MyInput : MonoBehaviour
     public static bool rotateRight;
     public static bool rotateLeft;
     public static bool resetRotation;
+    public static bool changeLock;
 
     public static Vector2 mousePos;
     public static Ray mouseInWorld;
@@ -24,7 +25,8 @@ public class MyInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
+        if (Keyboard.current.xKey.wasPressedThisFrame) changeLock = true;
+        if (Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;
         leftHold = Mouse.current.leftButton.isPressed;

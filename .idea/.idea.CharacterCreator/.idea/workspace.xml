@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Ensure/EnsureThat.Objects.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ItemInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,7 +71,7 @@
       <workItem from="1635334627929" duration="9736000" />
       <workItem from="1635360489653" duration="7330000" />
       <workItem from="1635494197866" duration="577000" />
-      <workItem from="1635494820419" duration="12302000" />
+      <workItem from="1635494820419" duration="14641000" />
     </task>
     <servers />
   </component>
