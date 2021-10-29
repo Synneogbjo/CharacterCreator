@@ -1654,6 +1654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global
       objectReference: {fileID: 0}
+    - target: {fileID: 1931913463827237594, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1472115436601039901, guid: 62717b8ccbda60044a173f49a6396661, type: 2}
     - target: {fileID: 1931913463827237598, guid: 8eeba5f9236173f42bee3e8b4dec60bd, type: 3}
       propertyPath: rotateSound
       value: 
