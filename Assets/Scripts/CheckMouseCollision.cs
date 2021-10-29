@@ -140,7 +140,7 @@ public class CheckMouseCollision : MonoBehaviour
             {
                 if (!selectedObject.GetComponent<ItemInfo>().locked)
                 {
-                    stretchAudio.GetComponent<AudioSource>().Play();
+                    if (!stretchAudio.GetComponent<AudioSource>().isPlaying) stretchAudio.GetComponent<AudioSource>().Play();
                     
                     selectedObject.transform.localScale =
                         new Vector3(
@@ -157,7 +157,7 @@ public class CheckMouseCollision : MonoBehaviour
                     selectedObject.transform.localScale = scale;
                 }
             }
-            else stretchAudio.GetComponent<AudioSource>().Stop();
+            else if (stretchAudio.GetComponent<AudioSource>().isPlaying) stretchAudio.GetComponent<AudioSource>().Stop();
         }
     }
 

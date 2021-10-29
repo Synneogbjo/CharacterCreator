@@ -40,8 +40,8 @@ AudioSource:
   m_GameObject: {fileID: 713811334995581958}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1472115436601039901, guid: 62717b8ccbda60044a173f49a6396661, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 25761a336df7e4546a42a9da075f39fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -181,7 +181,7 @@ MonoBehaviour:
   PickUp: {fileID: 8300000, guid: 24210fac56f3ac149920b89b409a1bc6, type: 3}
   Place: {fileID: 8300000, guid: 530ace3ebc3698b499628c38f7d1689e, type: 3}
   Delete: {fileID: 8300000, guid: ed3ea69be8b4c254c882d85e3f0df569, type: 3}
-  Stretch: {fileID: 8300000, guid: 25761a336df7e4546a42a9da075f39fe, type: 3}
+  StretchSound: {fileID: 0}
   CameraSound: {fileID: 8300000, guid: c5ba7903762e37543a9cc344d78c8a71, type: 3}
   rotateSound: {fileID: 8300000, guid: dcbac1b58ab538646b02877ce6361bc2, type: 3}
   sansSound: {fileID: 8300000, guid: fe34c8e50b6ad77409f34b88b32db57f, type: 3}
