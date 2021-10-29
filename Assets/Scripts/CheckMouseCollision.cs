@@ -71,6 +71,16 @@ public class CheckMouseCollision : MonoBehaviour
             }
         }
         
+        //Reset size of selected object
+        if (MyInput.resetSize)
+        {
+            MyInput.resetSize = false;
+            if (selectedObject != null)
+            {
+                if (!selectedObject.GetComponent<ItemInfo>().locked) selectedObject.transform.localScale = new Vector3(1f, 1f, selectedObject.transform.localScale.z);
+            }
+        }
+        
         //Delete selected object
         if (MyInput.delete)
         {

@@ -10,6 +10,7 @@ public class MyInput : MonoBehaviour
     public static bool rotateRight;
     public static bool rotateLeft;
     public static bool resetRotation;
+    public static bool resetSize;
     public static bool changeLock;
     public static bool sans;
     public static bool moveItemToFront;
@@ -39,6 +40,7 @@ public class MyInput : MonoBehaviour
         rotateRight = Keyboard.current.eKey.isPressed;
         rotateLeft = Keyboard.current.qKey.isPressed;
         if (Keyboard.current.rKey.wasPressedThisFrame) resetRotation = true;
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) resetSize = true;
         
         mousePos = Mouse.current.position.ReadValue();
         mouseInWorld = cam.ScreenPointToRay(mousePos);

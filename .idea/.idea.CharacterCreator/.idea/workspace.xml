@@ -10,6 +10,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Ensure/EnsureThat.Objects.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ItemInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,7 +79,7 @@
       <workItem from="1635334627929" duration="9736000" />
       <workItem from="1635360489653" duration="7330000" />
       <workItem from="1635494197866" duration="577000" />
-      <workItem from="1635494820419" duration="19081000" />
+      <workItem from="1635494820419" duration="19889000" />
     </task>
     <servers />
   </component>
