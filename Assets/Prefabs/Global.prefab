@@ -50,11 +50,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
   m_Audio: {fileID: 23591348341705348}
+<<<<<<< Updated upstream
   PickUp: {fileID: 8300000, guid: 24210fac56f3ac149920b89b409a1bc6, type: 3}
   Place: {fileID: 8300000, guid: 530ace3ebc3698b499628c38f7d1689e, type: 3}
   Delete: {fileID: 8300000, guid: ed3ea69be8b4c254c882d85e3f0df569, type: 3}
   Stretch: {fileID: 8300000, guid: 25761a336df7e4546a42a9da075f39fe, type: 3}
   CameraSound: {fileID: 8300000, guid: c5ba7903762e37543a9cc344d78c8a71, type: 3}
+=======
+  PickUp: {fileID: 8300000, guid: 37b7f88ba4120a64d821390978cfaa41, type: 3}
+  Place: {fileID: 8300000, guid: 28efbb1471f89ab459d0fb9879ec0dff, type: 3}
+  MouseX: {fileID: 0}
+  MouseY: {fileID: 0}
+  ImageX: {fileID: 0}
+  ImageY: {fileID: 0}
+  Width: {fileID: 0}
+  Height: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!114 &1834590295
 MonoBehaviour:
   m_ObjectHideFlags: 0
