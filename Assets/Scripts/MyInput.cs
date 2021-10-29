@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class MyInput : MonoBehaviour
 {
-    public static bool takeScreenshot;
     public static bool leftPressed;
     public static bool leftHold;
     public static bool rightHold;
@@ -16,6 +15,7 @@ public class MyInput : MonoBehaviour
     public static Ray mouseInWorld;
     
     private Camera cam;
+    [SerializeField] private CameraSaveScreenshot _Screenshot;
 
     private void Start()
     {
@@ -25,7 +25,10 @@ public class MyInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        takeScreenshot = Keyboard.current.kKey.wasPressedThisFrame;
+        if (Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            _Screenshot.TakeHiResShot();
+        }
         if(Keyboard.current.backspaceKey.wasPressedThisFrame) delete = true;
         
         if(Mouse.current.leftButton.wasPressedThisFrame) leftPressed = true;

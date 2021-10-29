@@ -20,7 +20,6 @@ public class CameraSaveScreenshot : MonoBehaviour
     }
  
     void LateUpdate() {
-        takeHiResShot |= MyInput.takeScreenshot;
         if (takeHiResShot)
         {
             RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
