@@ -6,6 +6,8 @@ public class CameraSaveScreenshot : MonoBehaviour
     public int resWidth = 1920;
     public int resHeight = 1080;
 
+    private float txtTime = 0f;
+
     public static bool shot;
     [SerializeField] private TMP_Text _txt;
 
@@ -22,6 +24,12 @@ public class CameraSaveScreenshot : MonoBehaviour
     }
     
     void LateUpdate() {
+        if (txtTime > 0f) txtTime -= Time.deltaTime;
+        else
+        {
+            _txt.text = "";
+        }
+        
         if (shot)
         {
             RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
@@ -37,6 +45,7 @@ public class CameraSaveScreenshot : MonoBehaviour
             string filename = ScreenShotName(resWidth, resHeight);
             System.IO.File.WriteAllBytes(filename, bytes);
             _txt.text = $"Took screenshot to: {filename}";
+            txtTime = 5f;
             shot = false;
         }
     }
