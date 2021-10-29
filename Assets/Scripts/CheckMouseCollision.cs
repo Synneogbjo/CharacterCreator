@@ -14,6 +14,7 @@ public class CheckMouseCollision : MonoBehaviour
     [SerializeField] private AudioClip Delete;
     [SerializeField] private AudioClip Stretch;
     [SerializeField] private AudioClip CameraSound;
+    [SerializeField] private AudioClip rotateSound;
     private bool holding;
 
     private Sprite spr;

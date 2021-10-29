@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b4422a5-5cc8-42d5-9d21-08f36e799a87" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CharacterCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CharacterCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5b4422a5-5cc8-42d5-9d21-08f36e799a87" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +11,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Ensure/EnsureThat.Objects.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CheckMouseCollision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneControl.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="205VpuX1gTtxbjwlcm2a9be7joP" />
   <component name="ProjectViewState">
@@ -73,7 +70,7 @@
       <workItem from="1635334627929" duration="9736000" />
       <workItem from="1635360489653" duration="7330000" />
       <workItem from="1635494197866" duration="577000" />
-      <workItem from="1635494820419" duration="11866000" />
+      <workItem from="1635494820419" duration="12302000" />
     </task>
     <servers />
   </component>
